@@ -47,6 +47,45 @@ Verify if a completed task can be deleted successfully
     Page Should Not Contain Element  xpath://span[@class='mdl-list__item-primary-content'][text()='First Task']
     Close Browser  
 
+Verify if can add,complete, and delete 3 items
+    Open Browser    https://abhigyank.github.io/To-Do-List/     Chrome
+
+    #Adding task1
+    Input Text  css:#new-task  First Task
+    Click Element  css:.material-icons
+
+    #Adding task2
+    Input Text  css:#new-task  Second Task
+    Click Element  css:.material-icons
+
+    #Adding task3
+    Input Text  css:#new-task  Third Task
+    Click Element  css:.material-icons
+    Click Link  css:a[href='#todo']
+
+    #Completing task1
+    Click Element  xpath://span[@id='text-1'][text()='First Task']
+
+    #Completing task2
+    Click Element  xpath://span[@id='text-1'][text()='Second Task']
+
+    #Completing task3
+    Click Element  xpath://span[@id='text-1'][text()='Third Task']
+    Click Link  css:a[href='#completed']
+
+    #Deleting the completed tasks
+    Click Element  css:div#completed button[id='1']
+    Click Element  css:div#completed button[id='1']
+    Click Element  css:div#completed button[id='1']
+    Page Should Not Contain Element  xpath://span[@class='mdl-list__item-primary-content'][text()='First Task']
+    Page Should Not Contain Element  xpath://span[@class='mdl-list__item-primary-content'][text()='Second Task']
+    Page Should Not Contain Element  xpath://span[@class='mdl-list__item-primary-content'][text()='Third Task']
+
+    Close Browser  
+
+
+
+
     
 
     
